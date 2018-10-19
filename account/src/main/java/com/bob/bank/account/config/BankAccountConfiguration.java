@@ -10,6 +10,5 @@ import org.springframework.context.annotation.Import;
  * @create 2018-10-19 14:42
  */
 @Configuration
-@Import(MybatisConfiguration.class)
 public class BankAccountConfiguration {
 }
