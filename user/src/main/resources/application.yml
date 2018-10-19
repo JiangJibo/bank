@@ -1,0 +1,26 @@
+spring:
+  application:
+    #代表项目里文件名称的前缀：user
+    name: bank-user
+
+
+
+server:
+  port: 8881
+
+# 设置Refresh容器时不需要安全校验
+management:
+  security:
+    enabled: false
+
+
+#http请求地址和资源文件映射如下
+#/{application}/{profile}[/{label}]
+
+#/{application}-{profile}.yml
+
+#/{label}/{application}-{profile}.yml
+
+#/{application}-{profile}.properties
+
+#/{label}/{application}-{profile}.properties
