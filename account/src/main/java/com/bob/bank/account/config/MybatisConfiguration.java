@@ -22,8 +22,8 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 @MapperScan(basePackages = "com.bob.bank.account.web.mapper", markerInterface = BaseMapper.class)
 public class MybatisConfiguration {
 
-    @Value("${mysql.driverClassName}")
-    private String driverClassName;
+    @Value("${mysql.url}")
+    private String url;
 
     @Value("${mysql.userName}")
     private String userName;
@@ -31,9 +31,8 @@ public class MybatisConfiguration {
     @Value("${mysql.password}")
     private String password;
 
-    @Value("${mysql.url}")
-    private String url;
-
+    @Value("${mysql.driverClassName}")
+    private String driverClassName;
     /**
      * 写数据源
      *
@@ -45,7 +44,6 @@ public class MybatisConfiguration {
         dataSource.setDriverClassName(driverClassName);
         //针对mysql获取字段注释
         dataSource.addConnectionProperty("useInformationSchema", "true");
-        //dataSource.addConnectionProperty("remarksReporting","true");  针对oracle获取字段注释
         dataSource.setUrl(url);
         dataSource.setUsername(userName);
         dataSource.setPassword(password);
