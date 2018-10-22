@@ -13,6 +13,7 @@
         <module>user</module>
         <module>account</module>
         <module>common</module>
+        <module>namesrv</module>
     </modules>
 
 
