@@ -20,8 +20,8 @@ public enum AccountRankEnum {
 
     DIAMOND(4, "钻石");
 
-    Integer code;
-    String label;
+    private Integer code;
+    private String label;
 
     private static final Map<Integer, AccountRankEnum> VALUES = new HashMap();
 
@@ -36,5 +36,13 @@ public enum AccountRankEnum {
 
     public static AccountRankEnum valueOf(Integer code) {
         return VALUES.get(code);
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public String getLabel() {
+        return label;
     }
 }

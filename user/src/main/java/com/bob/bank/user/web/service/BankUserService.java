@@ -6,5 +6,12 @@ package com.bob.bank.user.web.service;
  */
 public interface BankUserService {
 
+    /**
+     * 提升账户等级
+     *
+     * @param userId
+     * @return
+     */
+    boolean upgradeAccountRank(Integer userId);
 
 }

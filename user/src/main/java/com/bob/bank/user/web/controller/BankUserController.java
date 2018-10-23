@@ -1,9 +1,10 @@
 package com.bob.bank.user.web.controller;
 
-import javax.annotation.PostConstruct;
-
+import com.bob.bank.client.result.PojoResult;
+import com.bob.bank.user.web.service.BankUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.netflix.eureka.EurekaClientConfigBean;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,15 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
  * @create 2018-10-19 11:58
  */
 @RestController
-@RequestMapping("/bankUser")
+@RequestMapping("/bank/user")
 public class BankUserController {
 
     @Autowired
-    public EurekaClientConfigBean eurekaClientConfigBean;
+    private BankUserService bankUserService;
 
-    @PostConstruct
-    public void init() {
-        System.out.println(eurekaClientConfigBean.toString());
+    /**
+     * 提升用户的账号等级
+     *
+     * @param id
+     * @return
+     */
+    @PutMapping("/{id}/rank")
+    public PojoResult<Boolean> upgradeAccountRank(@PathVariable Integer id) {
+        return new PojoResult<>(bankUserService.upgradeAccountRank(id));
     }
 
 }
