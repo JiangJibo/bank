@@ -5,11 +5,12 @@ import java.util.Date;
 
 /**
  * 数据库表：bank_account
- * 
+ *
  * @author Administrator
  * @create 2018-08-01
  */
 public class BankAccount {
+
     /**
      * 账户主键
      */
@@ -43,7 +44,7 @@ public class BankAccount {
     /**
      * 账户等级
      */
-    private String rank;
+    private Integer rank;
 
     /**
      * 账户余额
@@ -103,12 +104,12 @@ public class BankAccount {
         this.score = score;
     }
 
-    public String getRank() {
+    public Integer getRank() {
         return rank;
     }
 
-    public void setRank(String rank) {
-        this.rank = rank == null ? null : rank.trim();
+    public void setRank(Integer rank) {
+        this.rank = rank;
     }
 
     public BigDecimal getMoney() {

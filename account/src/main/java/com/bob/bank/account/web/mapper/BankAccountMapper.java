@@ -1,5 +1,7 @@
 package com.bob.bank.account.web.mapper;
 
+import java.util.List;
+
 import com.bob.bank.client.base.BaseMapper;
 import com.bob.bank.client.model.BankAccount;
 
@@ -47,4 +49,12 @@ public interface BankAccountMapper extends BaseMapper<Integer, BankAccount> {
      * @return
      */
     int updateById(BankAccount record);
+
+    /**
+     * 查询用户的账号是否存在
+     *
+     * @param userId
+     * @return
+     */
+    boolean checkIfAccountExists(Integer userId);
 }

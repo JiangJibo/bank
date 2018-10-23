@@ -1,4 +1,4 @@
-package com.bob.bank.user;
+package com.bob.bank.user.web.controller;
 
 import javax.annotation.PostConstruct;
 

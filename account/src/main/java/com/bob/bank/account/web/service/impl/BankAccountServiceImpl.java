@@ -20,9 +20,17 @@ public class BankAccountServiceImpl implements BankAccountService {
     @Autowired
     private BankAccountMapper bankAccountMapper;
 
-
     @Override
     public int create(BankAccount bankAccount) {
+        Integer userId = bankAccount.getUserId();
+        boolean applicable = bankUserFeignService.checkIfUserApplicable(userId).getContent();
+        if (!applicable) {
+            throw new IllegalArgumentException(String.format("用户ID:[%s]不存在", userId));
+        }
+        boolean exists = bankAccountMapper.checkIfAccountExists(userId);
+        if(exists){
+            throw new IllegalArgumentException(String.format("用户ID:[%s]账户已存在,不能重复创建", userId));
+        }
         return bankAccountMapper.insert(bankAccount);
     }
 

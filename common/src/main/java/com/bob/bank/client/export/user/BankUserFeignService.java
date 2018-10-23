@@ -23,4 +23,12 @@ public interface BankUserFeignService {
     @PostMapping
     PojoResult<Boolean> createUser(BankUser bankUser);
 
+    /**
+     * 验证指定用户是存在和激活中
+     *
+     * @param id
+     * @return
+     */
+    PojoResult<Boolean> checkIfUserApplicable(Integer id);
+
 }
