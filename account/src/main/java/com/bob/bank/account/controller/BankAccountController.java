@@ -4,8 +4,6 @@ import com.bob.bank.account.service.BankAccountService;
 import com.bob.bank.client.model.BankAccount;
 import com.bob.bank.client.result.PojoResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

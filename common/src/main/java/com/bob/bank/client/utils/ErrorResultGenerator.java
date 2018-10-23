@@ -1,5 +1,6 @@
 package com.bob.bank.client.utils;
 
+import com.bob.bank.client.constants.ErrorCodeEnum;
 import com.bob.bank.client.result.PojoResult;
 
 import static com.bob.bank.client.constants.ErrorCodeEnum.REST_REQUEST_ERROR;
@@ -17,9 +18,9 @@ public abstract class ErrorResultGenerator {
      * @param <T>
      * @return
      */
-    public static <T> PojoResult<T> generatePojoResult(T t) {
+    public static <T> PojoResult<T> generatePojoResult(ErrorCodeEnum error, T t) {
         PojoResult<T> result = new PojoResult<>(t);
-        result.setErrorMessage(REST_REQUEST_ERROR.getCode(), REST_REQUEST_ERROR.getLabel());
+        result.setErrorMessage(error.getCode(), error.getLabel());
         return result;
     }
 

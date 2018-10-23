@@ -7,6 +7,7 @@ import com.bob.bank.client.utils.ErrorResultGenerator;
 import org.springframework.stereotype.Service;
 
 import static com.bob.bank.client.constants.ErrorCodeEnum.REST_REQUEST_ERROR;
+import static com.bob.bank.client.constants.ErrorCodeEnum.SYSTEM_ERROR;
 
 /**
  * @author wb-jjb318191
@@ -17,7 +18,7 @@ public class BankAccountFeignFallback implements BankAccountFeignService {
 
     @Override
     public PojoResult<Boolean> createAccount(BankAccount bankAccount) {
-        return ErrorResultGenerator.generatePojoResult(false);
+        return ErrorResultGenerator.generatePojoResult(SYSTEM_ERROR, false);
     }
 
 }
