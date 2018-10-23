@@ -15,6 +15,7 @@ public class PojoResult<T> extends BaseResult {
     }
 
     public PojoResult(T content) {
+        super();
         this.content = content;
     }
 

@@ -14,4 +14,12 @@ public interface BankUserService {
      */
     boolean upgradeAccountRank(Integer userId);
 
+    /**
+     * 验证用户是否存在
+     *
+     * @param userId
+     * @return
+     */
+    boolean checkIfUserExists(Integer userId);
+
 }

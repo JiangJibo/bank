@@ -4,6 +4,7 @@ import com.bob.bank.account.mapper.BankAccountMapper;
 import com.bob.bank.account.service.BankAccountService;
 import com.bob.bank.client.export.user.BankUserFeignService;
 import com.bob.bank.client.model.BankAccount;
+import com.bob.bank.client.result.PojoResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +24,15 @@ public class BankAccountServiceImpl implements BankAccountService {
     @Override
     public int create(BankAccount bankAccount) {
         Integer userId = bankAccount.getUserId();
-        boolean applicable = bankUserFeignService.checkIfUserApplicable(userId).getContent();
-        if (!applicable) {
+        PojoResult<Boolean> checkResult = bankUserFeignService.checkIfUserApplicable(userId);
+        if (!checkResult.isSuccess()) {
+            throw new IllegalArgumentException(checkResult.getErrorMsg());
+        }
+        if (!checkResult.getContent()) {
             throw new IllegalArgumentException(String.format("用户ID:[%s]不存在", userId));
         }
         boolean exists = bankAccountMapper.checkIfAccountExists(userId);
-        if(exists){
+        if (exists) {
             throw new IllegalArgumentException(String.format("用户ID:[%s]账户已存在,不能重复创建", userId));
         }
         return bankAccountMapper.insert(bankAccount);

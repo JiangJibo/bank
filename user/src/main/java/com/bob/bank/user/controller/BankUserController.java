@@ -3,6 +3,7 @@ package com.bob.bank.user.controller;
 import com.bob.bank.client.result.PojoResult;
 import com.bob.bank.user.service.BankUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,17 @@ public class BankUserController {
     @PutMapping("/{id}/rank")
     public PojoResult<Boolean> upgradeAccountRank(@PathVariable Integer id) {
         return new PojoResult<>(bankUserService.upgradeAccountRank(id));
+    }
+
+    /**
+     * 查询指定Id的用户是否存在
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public PojoResult<Boolean> checkIfUserExists(@PathVariable Integer id) {
+        return new PojoResult<>(bankUserService.checkIfUserExists(id));
     }
 
 }
