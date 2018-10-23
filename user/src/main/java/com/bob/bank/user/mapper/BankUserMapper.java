@@ -1,4 +1,4 @@
-package com.bob.bank.user.web.mapper;
+package com.bob.bank.user.mapper;
 
 import java.util.List;
 import java.util.Map;

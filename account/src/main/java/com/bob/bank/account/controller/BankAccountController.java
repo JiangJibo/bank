@@ -1,6 +1,6 @@
-package com.bob.bank.account.web.controller;
+package com.bob.bank.account.controller;
 
-import com.bob.bank.account.web.service.BankAccountService;
+import com.bob.bank.account.service.BankAccountService;
 import com.bob.bank.client.model.BankAccount;
 import com.bob.bank.client.result.PojoResult;
 import org.springframework.beans.factory.annotation.Autowired;

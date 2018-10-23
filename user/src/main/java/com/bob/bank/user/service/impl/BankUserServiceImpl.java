@@ -1,7 +1,7 @@
-package com.bob.bank.user.web.service.impl;
+package com.bob.bank.user.service.impl;
 
 import com.bob.bank.client.export.account.BankAccountFeignService;
-import com.bob.bank.user.web.service.BankUserService;
+import com.bob.bank.user.service.BankUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

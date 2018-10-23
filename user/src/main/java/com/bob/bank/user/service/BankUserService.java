@@ -1,4 +1,4 @@
-package com.bob.bank.user.web.service;
+package com.bob.bank.user.service;
 
 /**
  * @author wb-jjb318191

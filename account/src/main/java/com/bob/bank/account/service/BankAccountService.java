@@ -1,4 +1,4 @@
-package com.bob.bank.account.web.service;
+package com.bob.bank.account.service;
 
 import com.bob.bank.client.model.BankAccount;
 

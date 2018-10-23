@@ -1,6 +1,4 @@
-package com.bob.bank.account.web.mapper;
-
-import java.util.List;
+package com.bob.bank.account.mapper;
 
 import com.bob.bank.client.base.BaseMapper;
 import com.bob.bank.client.model.BankAccount;

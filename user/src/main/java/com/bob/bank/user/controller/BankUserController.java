@@ -1,7 +1,7 @@
-package com.bob.bank.user.web.controller;
+package com.bob.bank.user.controller;
 
 import com.bob.bank.client.result.PojoResult;
-import com.bob.bank.user.web.service.BankUserService;
+import com.bob.bank.user.service.BankUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;

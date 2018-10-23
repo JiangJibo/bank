@@ -1,7 +1,7 @@
-package com.bob.bank.account.web.service.impl;
+package com.bob.bank.account.service.impl;
 
-import com.bob.bank.account.web.mapper.BankAccountMapper;
-import com.bob.bank.account.web.service.BankAccountService;
+import com.bob.bank.account.mapper.BankAccountMapper;
+import com.bob.bank.account.service.BankAccountService;
 import com.bob.bank.client.export.user.BankUserFeignService;
 import com.bob.bank.client.model.BankAccount;
 import org.springframework.beans.factory.annotation.Autowired;
