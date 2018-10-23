@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author wb-jjb318191
  * @create 2018-10-19 17:45
  */
-@RequestMapping("/bank/user")
 @FeignClient(value = "bank-user", fallback = BankUserFeignFallback.class)
 public interface BankUserFeignService {
 
@@ -23,7 +22,7 @@ public interface BankUserFeignService {
      * @param bankUser
      * @return
      */
-    @PostMapping
+    @PostMapping("/bank/user")
     PojoResult<Boolean> createUser(BankUser bankUser);
 
     /**
@@ -32,7 +31,7 @@ public interface BankUserFeignService {
      * @param id
      * @return
      */
-    @GetMapping("/{id}")
-    PojoResult<Boolean> checkIfUserApplicable(@PathVariable Integer id);
+    @GetMapping("/bank/user/{id}")
+    PojoResult<Boolean> checkIfUserApplicable(@PathVariable("id") Integer id);
 
 }

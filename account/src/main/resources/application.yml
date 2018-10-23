@@ -3,8 +3,6 @@ spring:
     #代表项目里文件名称的前缀：bank-account
     name: bank-account
 
-
-
 server:
   port: 8881
 
@@ -16,6 +14,18 @@ management:
 feign:
   hystrix:
     enabled: true
+
+# Ribbon的其他配置信息, 见 {@link RibbonClientConfiguration#ribbonClientConfig()}  和 {@link DefaultClientConfigImpl}
+ribbon:
+  MaxAutoRetriesNextServer: 2
+
+# ribbon应用配置信息, 详见 {@link PropertiesFactory}
+bank-user:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
+
+
 
 
 #http请求地址和资源文件映射如下

@@ -14,10 +14,10 @@ import org.springframework.context.annotation.Import;
  * @create 2018-10-19 12:10
  */
 @EnableEurekaClient
-@SpringBootApplication
 @Import(MybatisConfiguration.class)
 @EnableFeignClients("com.bob.bank.client.export.user")
 @MapperScan(basePackages = "com.bob.bank.account.mapper", markerInterface = BaseMapper.class)
+@SpringBootApplication(scanBasePackages = {"com.bob.bank.account", "com.bob.bank.client.export.user"})
 public class BankAccountApplication {
 
     public static void main(String[] args) {
