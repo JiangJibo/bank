@@ -13,6 +13,18 @@ management:
   security:
     enabled: false
 
+# Feign客户端配置
+feign:
+  client:
+    default-to-properties: false
+    config:
+      SERVICE-EUREKA:
+        loggerLevel: FULL
+      default:
+        connectTimeout: 5000
+  hystrix:
+      enabled: true
+
 
 #http请求地址和资源文件映射如下
 #/{application}/{profile}[/{label}]
