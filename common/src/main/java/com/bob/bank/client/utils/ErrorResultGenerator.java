@@ -14,6 +14,7 @@ public abstract class ErrorResultGenerator {
     /**
      * 生成简单类型的结果
      *
+     * @param error
      * @param t
      * @param <T>
      * @return
