@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author wb-jjb318191
  * @create 2018-10-19 17:06
  */
-@RequestMapping("/bank/account")
 @FeignClient(value = "bank-account", fallback = BankAccountFeignFallback.class)
 public interface BankAccountFeignService {
 
@@ -21,7 +20,7 @@ public interface BankAccountFeignService {
      * @param bankAccount
      * @return
      */
-    @PostMapping
+    @PostMapping("/bank/account")
     PojoResult<Boolean> createAccount(BankAccount bankAccount);
 
 }

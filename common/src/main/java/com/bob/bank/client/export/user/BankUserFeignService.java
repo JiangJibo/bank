@@ -7,7 +7,6 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author wb-jjb318191
@@ -28,10 +27,10 @@ public interface BankUserFeignService {
     /**
      * 验证指定用户是存在和激活中
      *
-     * @param id
+     * @param userI
      * @return
      */
     @GetMapping("/bank/user/{id}")
-    PojoResult<Boolean> checkIfUserApplicable(@PathVariable("id") Integer id);
+    PojoResult<Boolean> checkIfUserApplicable(@PathVariable("id") Integer userI);
 
 }
