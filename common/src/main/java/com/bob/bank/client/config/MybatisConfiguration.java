@@ -46,9 +46,9 @@ public class MybatisConfiguration {
         dataSource.setUrl(url);
         dataSource.setUsername(userName);
         dataSource.setPassword(password);
-        dataSource.setMaxTotal(50);
-        dataSource.setMinIdle(5);
-        dataSource.setMaxIdle(10);
+        dataSource.setMaxTotal(10);
+        dataSource.setMinIdle(2);
+        dataSource.setMaxIdle(5);
         return dataSource;
     }
 
