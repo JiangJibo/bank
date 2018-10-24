@@ -9,7 +9,6 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>config</module>
         <module>user</module>
         <module>account</module>
         <module>common</module>
