@@ -37,7 +37,7 @@ public class BankUserController {
      * @param id
      * @return
      */
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/exists")
     public PojoResult<Boolean> checkIfUserExists(@PathVariable Integer id) {
         return new PojoResult<>(bankUserService.checkIfUserExists(id));
     }
