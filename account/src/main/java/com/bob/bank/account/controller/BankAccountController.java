@@ -4,6 +4,8 @@ import com.bob.bank.account.service.BankAccountService;
 import com.bob.bank.client.model.BankAccount;
 import com.bob.bank.client.result.PojoResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +31,17 @@ public class BankAccountController {
     @PostMapping
     public PojoResult<Boolean> createAccount(@RequestBody BankAccount bankAccount) {
         return new PojoResult<>(bankAccountService.create(bankAccount) > 0);
+    }
+
+    /**
+     * 查询用户指定账号
+     *
+     * @param userId
+     * @return
+     */
+    @GetMapping("/{userId}")
+    public PojoResult<BankAccount> getAccount(@PathVariable Integer userId) {
+        return new PojoResult<>(bankAccountService.getById(userId));
     }
 
 }

@@ -21,4 +21,9 @@ public class BankAccountFeignFallback implements BankAccountFeignService {
         return ErrorResultGenerator.generatePojoResult(SYSTEM_ERROR, false);
     }
 
+    @Override
+    public PojoResult<BankAccount> getBankAccountByUserId(Integer userId) {
+        return ErrorResultGenerator.generatePojoResult(SYSTEM_ERROR, null);
+    }
+
 }

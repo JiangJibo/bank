@@ -4,6 +4,8 @@ import com.bob.bank.client.export.account.fallback.BankAccountFeignFallback;
 import com.bob.bank.client.model.BankAccount;
 import com.bob.bank.client.result.PojoResult;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,5 +24,14 @@ public interface BankAccountFeignService {
      */
     @PostMapping("/bank/account")
     PojoResult<Boolean> createAccount(BankAccount bankAccount);
+
+    /**
+     * 查询指定用户的银行账号
+     *
+     * @param userId
+     * @return
+     */
+    @GetMapping("/bank/account/{userId}")
+    PojoResult<BankAccount> getBankAccountByUserId(@PathVariable("userId") Integer userId);
 
 }

@@ -1,5 +1,6 @@
 package com.bob.bank.user.controller;
 
+import com.bob.bank.client.model.BankAccount;
 import com.bob.bank.client.result.PojoResult;
 import com.bob.bank.user.service.BankUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,17 @@ public class BankUserController {
     @GetMapping("/{id}/exists")
     public PojoResult<Boolean> checkIfUserExists(@PathVariable Integer id) {
         return new PojoResult<>(bankUserService.checkIfUserExists(id));
+    }
+
+    /**
+     * 查询指定用户的银行账号
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}/account")
+    public PojoResult<BankAccount> getAccountByUserId(@PathVariable Integer id) {
+        return new PojoResult<>(bankUserService.getBankAccount(id));
     }
 
 }

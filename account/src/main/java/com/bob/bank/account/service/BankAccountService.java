@@ -15,6 +15,8 @@ public interface BankAccountService {
     int create(BankAccount bankAccount);
 
     /**
+     * 查询用户账号
+     *
      * @param id
      * @return
      */

@@ -1,5 +1,7 @@
 package com.bob.bank.user.service;
 
+import com.bob.bank.client.model.BankAccount;
+
 /**
  * @author wb-jjb318191
  * @create 2018-10-23 9:47
@@ -21,5 +23,11 @@ public interface BankUserService {
      * @return
      */
     boolean checkIfUserExists(Integer userId);
+
+    /**
+     * @param userId
+     * @return
+     */
+    BankAccount getBankAccount(Integer userId);
 
 }
