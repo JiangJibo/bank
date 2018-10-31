@@ -10,6 +10,16 @@ spring:
        #  默认值为0.1f，现在为了测试设置100%采集
       probability: 1.0
 
+  # 数据源相关配置
+  datasource:
+    username: root
+    password: lanboal
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/project?useUnicode=true&characterEncoding=UTF8&useSSL=false
+    dbcp2:
+      max-total: 10
+      min-idle: 2
+      max-idle: 5
 
 
 

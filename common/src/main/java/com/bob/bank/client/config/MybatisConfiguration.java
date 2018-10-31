@@ -1,5 +1,7 @@
 package com.bob.bank.client.config;
 
+import javax.sql.DataSource;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -18,39 +20,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
  * @create 2018-10-19 14:45
  */
 @Configuration
-@PropertySource("classpath:database-config.properties")
 public class MybatisConfiguration {
-
-    @Value("${mysql.url}")
-    private String url;
-
-    @Value("${mysql.userName}")
-    private String userName;
-
-    @Value("${mysql.password}")
-    private String password;
-
-    @Value("${mysql.driverClassName}")
-    private String driverClassName;
-    /**
-     * 写数据源
-     *
-     * @return
-     */
-    @Bean(destroyMethod = "close")
-    public BasicDataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(driverClassName);
-        //针对mysql获取字段注释
-        dataSource.addConnectionProperty("useInformationSchema", "true");
-        dataSource.setUrl(url);
-        dataSource.setUsername(userName);
-        dataSource.setPassword(password);
-        dataSource.setMaxTotal(10);
-        dataSource.setMinIdle(2);
-        dataSource.setMaxIdle(5);
-        return dataSource;
-    }
 
     /**
      * 事务管理器
@@ -59,7 +29,7 @@ public class MybatisConfiguration {
      * @return
      */
     @Bean
-    public DataSourceTransactionManager txManager(BasicDataSource dataSource) {
+    public DataSourceTransactionManager txManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
@@ -71,7 +41,7 @@ public class MybatisConfiguration {
      * @throws Exception
      */
     @Bean
-    public SqlSessionFactory sqlSessionFactory(BasicDataSource dataSource) throws Exception {
+    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         // 配置MapperConfig
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
         configuration.setDefaultExecutorType(ExecutorType.REUSE);
@@ -87,6 +57,5 @@ public class MybatisConfiguration {
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*Mapper.xml"));
         return sqlSessionFactoryBean.getObject();
     }
-
 
 }

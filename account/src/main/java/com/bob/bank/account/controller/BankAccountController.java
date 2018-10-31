@@ -27,7 +27,7 @@ public class BankAccountController {
     private BankAccountService bankAccountService;
 
     /**
-     * Spring5.0之后,默认没有加载{@link Endpoint}标识的Endpoint
+     * Spring5.0之后,默认没有加载{@link Endpoint}标识的Endpoint,也就是单纯的"/refresh"不会起作用
      */
     @Autowired
     private RefreshEndpoint refreshEndpoint;
@@ -54,8 +54,13 @@ public class BankAccountController {
         return new PojoResult<>(bankAccountService.getById(userId));
     }
 
+    /**
+     * 刷新环境
+     *
+     * @return
+     */
     @PostMapping("/refresh")
-    public Collection<String> refreshContext() {
+    public Collection<String> refreshEnvironment() {
         return refreshEndpoint.refresh();
     }
 
