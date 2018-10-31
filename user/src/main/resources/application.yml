@@ -14,7 +14,7 @@ spring:
        #  默认值为0.1f，现在为了测试设置100%采集
       probability: 1.0
 
-   # 数据源相关配置
+  # 数据源相关配置
   datasource:
     username: root
     password: lanboal
@@ -40,15 +40,3 @@ ribbon:
 bank-account:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
-
-
-#http请求地址和资源文件映射如下
-#/{application}/{profile}[/{label}]
-
-#/{application}-{profile}.yml
-
-#/{label}/{application}-{profile}.yml
-
-#/{application}-{profile}.properties
-
-#/{label}/{application}-{profile}.properties
