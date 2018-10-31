@@ -1,8 +1,4 @@
 spring:
-  application:
-    #代表项目里文件名称的前缀：bank-account
-    name: bank-account
-
   zipkin:
     # zipkkin dashboard的地址：通过真实IP地址访问
     baseUrl: http://zipkin/

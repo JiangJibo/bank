@@ -1,9 +1,13 @@
 package com.bob.bank.account.controller;
 
+import java.util.Collection;
+
 import com.bob.bank.account.service.BankAccountService;
 import com.bob.bank.client.model.BankAccount;
 import com.bob.bank.client.result.PojoResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
+import org.springframework.cloud.endpoint.RefreshEndpoint;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +25,12 @@ public class BankAccountController {
 
     @Autowired
     private BankAccountService bankAccountService;
+
+    /**
+     * Spring5.0之后,默认没有加载{@link Endpoint}标识的Endpoint
+     */
+    @Autowired
+    private RefreshEndpoint refreshEndpoint;
 
     /**
      * 创建账号
@@ -42,6 +52,11 @@ public class BankAccountController {
     @GetMapping("/{userId}")
     public PojoResult<BankAccount> getAccount(@PathVariable Integer userId) {
         return new PojoResult<>(bankAccountService.getById(userId));
+    }
+
+    @PostMapping("/refresh")
+    public Collection<String> refreshContext() {
+        return refreshEndpoint.refresh();
     }
 
 }
