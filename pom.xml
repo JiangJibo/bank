@@ -13,6 +13,7 @@
         <module>account</module>
         <module>common</module>
         <module>parent</module>
+        <module>kafka</module>
     </modules>
 
 
