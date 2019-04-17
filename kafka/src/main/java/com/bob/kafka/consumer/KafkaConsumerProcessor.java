@@ -2,13 +2,13 @@
  * Copyright(C) 2017 MassBot Co. Ltd. All rights reserved.
  *
  */
-package com.bob.kafka.kafka.consumer;
+package com.bob.kafka.consumer;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bob.kafka.kafka.factoryconfig.KafkaContainerFactoryConfigurer;
+import com.bob.kafka.factoryconfig.KafkaContainerFactoryConfigurer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;

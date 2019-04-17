@@ -2,7 +2,7 @@
  * Copyright(C) 2017 MassBot Co. Ltd. All rights reserved.
  *
  */
-package com.bob.kafka.kafka.entity;
+package com.bob.kafka.entity;
 
 /**
  * @since 2017年7月1日 上午10:35:11

@@ -2,7 +2,7 @@
  * Copyright(C) 2017 MassBot Co. Ltd. All rights reserved.
  *
  */
-package com.bob.kafka.kafka.consumer;
+package com.bob.kafka.consumer;
 
 import java.util.Map;
 

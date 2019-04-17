@@ -2,11 +2,11 @@
  * Copyright(C) 2017 MassBot Co. Ltd. All rights reserved.
  *
  */
-package com.bob.kafka.kafka.producer;
+package com.bob.kafka.producer;
 
 import java.util.concurrent.Callable;
 
-import com.bob.kafka.kafka.entity.KafkaMessageEntity;
+import com.bob.kafka.entity.KafkaMessageEntity;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

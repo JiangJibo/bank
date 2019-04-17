@@ -2,7 +2,7 @@
  * Copyright(C) 2017 MassBot Co. Ltd. All rights reserved.
  *
  */
-package com.bob.kafka.kafka.eventlistener;
+package com.bob.kafka.eventlistener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

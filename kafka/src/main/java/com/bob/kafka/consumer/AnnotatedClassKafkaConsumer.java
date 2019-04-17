@@ -2,9 +2,9 @@
  * Copyright(C) 2017 MassBot Co. Ltd. All rights reserved.
  *
  */
-package com.bob.kafka.kafka.consumer;
+package com.bob.kafka.consumer;
 
-import com.bob.kafka.kafka.entity.KafkaMessageEntity;
+import com.bob.kafka.entity.KafkaMessageEntity;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.Message;

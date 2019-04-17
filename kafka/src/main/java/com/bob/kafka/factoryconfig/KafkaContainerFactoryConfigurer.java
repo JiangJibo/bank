@@ -1,12 +1,12 @@
 /**
  * Copyright(C) 2017 MassBot Co. Ltd. All rights reserved.
  */
-package com.bob.kafka.kafka.factoryconfig;
+package com.bob.kafka.factoryconfig;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.bob.kafka.kafka.producer.PartitionSelector;
+import com.bob.kafka.producer.PartitionSelector;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.IntegerDeserializer;

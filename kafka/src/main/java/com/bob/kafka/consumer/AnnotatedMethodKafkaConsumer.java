@@ -2,13 +2,13 @@
  * Copyright(C) 2017 MassBot Co. Ltd. All rights reserved.
  *
  */
-package com.bob.kafka.kafka.consumer;
+package com.bob.kafka.consumer;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import com.bob.kafka.kafka.entity.KafkaMessageEntity;
+import com.bob.kafka.entity.KafkaMessageEntity;
 import com.google.gson.Gson;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
