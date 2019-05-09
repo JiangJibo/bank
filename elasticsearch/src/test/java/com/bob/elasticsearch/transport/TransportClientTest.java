@@ -5,15 +5,19 @@ import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.google.gson.Gson;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.bytes.BytesReference;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
+import org.elasticsearch.common.xcontent.XContentHelper;
+import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
@@ -30,7 +34,9 @@ public class TransportClientTest {
     private TransportClient client;
 
     private final static String article = "lanboal";
-    private final static String content = "content";
+    // 一个索引映射两种类型, 但6.x只支持一种 映射类型了
+    private final static String PYTHON = "python";
+    private final static String JAVA = "java";
 
     @Before
     public void getClient() throws Exception {
@@ -50,6 +56,7 @@ public class TransportClientTest {
     public void CreateIndexAndMapping() throws Exception {
 
         CreateIndexRequestBuilder cib = client.admin().indices().prepareCreate(article);
+
         XContentBuilder mapping = XContentFactory.jsonBuilder()
             .startObject()
             .startObject("properties") //设置之定义字段
@@ -78,11 +85,15 @@ public class TransportClientTest {
             .endObject()
             .endObject();
 
-        cib.addMapping(content, mapping);
+        String json = XContentHelper.convertToJson(BytesReference.bytes(mapping), false, false, XContentType.JSON);
+
+        System.out.println(json);
+
+        cib.addMapping(PYTHON, mapping);
 
         CreateIndexResponse res = cib.execute().actionGet();
 
-        System.out.println("----------添加映射成功----------");
+        System.out.println(new Gson().toJson(res));
     }
 
     /**
@@ -95,7 +106,7 @@ public class TransportClientTest {
 
         Date time = new Date();
 
-        IndexResponse response = client.prepareIndex(article, content)
+        IndexResponse response = client.prepareIndex(article, JAVA)
             .setSource(XContentFactory.jsonBuilder().startObject()
                 .field("id", "123")
                 .field("author", "jiangjibo")
@@ -107,7 +118,7 @@ public class TransportClientTest {
                 .field("date", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time))
                 .endObject())
             .get();
-        System.out.println("添加索引成功,版本号：" + response.getVersion());
+        System.out.println(new Gson().toJson(response));
     }
 
     @Test
