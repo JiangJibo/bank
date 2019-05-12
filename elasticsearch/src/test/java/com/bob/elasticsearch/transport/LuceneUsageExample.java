@@ -1,6 +1,7 @@
 package com.bob.elasticsearch.transport;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -18,6 +19,9 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.Sort;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
+import org.apache.lucene.store.SimpleFSDirectory;
+import org.apache.lucene.store.WindowsDirectory;
+import org.elasticsearch.index.mapper.TextFieldMapper.TextFieldType;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -62,6 +66,17 @@ public class LuceneUsageExample {
         }
         ireader.close();
         directory.close();
+    }
+
+    @Test
+    public void testInsertDocument() throws IOException {
+        IndexWriter writer = new IndexWriter(new SimpleFSDirectory(Paths.get("E:\\lucene")),new IndexWriterConfig(new StandardAnalyzer()));
+        Document doc = new Document();
+        doc.add(new Field("title", "java introduction", new TextFieldType()));
+        doc.add(new Field("content", "python works well", new TextFieldType()));
+        writer.addDocument(doc);
+        //writer.optimize();
+        writer.close();
     }
 
 }
