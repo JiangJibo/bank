@@ -20,7 +20,6 @@ import org.apache.lucene.search.Sort;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.store.SimpleFSDirectory;
-import org.apache.lucene.store.WindowsDirectory;
 import org.elasticsearch.index.mapper.TextFieldMapper.TextFieldType;
 import org.junit.Test;
 
@@ -69,8 +68,22 @@ public class LuceneUsageExample {
     }
 
     @Test
-    public void testInsertDocument() throws IOException {
-        IndexWriter writer = new IndexWriter(new SimpleFSDirectory(Paths.get("E:\\lucene")),new IndexWriterConfig(new StandardAnalyzer()));
+    public void testCompoundSystem() throws IOException {
+        IndexWriter writer = new IndexWriter(new SimpleFSDirectory(Paths.get("E:\\lucene-compund")),new IndexWriterConfig(new StandardAnalyzer()));
+        Document doc = new Document();
+        doc.add(new Field("title", "java introduction", new TextFieldType()));
+        doc.add(new Field("content", "python works well", new TextFieldType()));
+        writer.addDocument(doc);
+        //writer.optimize();
+        writer.close();
+    }
+
+    @Test
+    public void testUnCompoundSystem() throws IOException {
+        IndexWriterConfig writerConfig = new IndexWriterConfig(new StandardAnalyzer());
+        // 不适用复合的文件
+        writerConfig.setUseCompoundFile(false);
+        IndexWriter writer = new IndexWriter(new SimpleFSDirectory(Paths.get("E:\\lucene-uncompund")),writerConfig);
         Document doc = new Document();
         doc.add(new Field("title", "java introduction", new TextFieldType()));
         doc.add(new Field("content", "python works well", new TextFieldType()));
