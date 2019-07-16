@@ -1,22 +1,24 @@
 package com.bob.elasticsearch.model;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 /**
  *
  */
-@Document(indexName = "company",type = "employee", shards = 1,replicas = 0, refreshInterval = "-1")
+@Document(indexName = "lanboal", type = "employee", shards = 1, replicas = 0, refreshInterval = "-1")
 public class Employee {
     @Id
     private String id;
-    @Field
+    @Field(type = FieldType.Keyword)
     private String firstName;
-    @Field
+    @Field(type = FieldType.Keyword)
     private String lastName;
-    @Field
+    @Field(type = FieldType.Integer)
     private Integer age = 0;
-    @Field
+    @Field(type = FieldType.Text)
     private String about;
 
     public String getId() {

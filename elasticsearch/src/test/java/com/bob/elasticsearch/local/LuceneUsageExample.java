@@ -1,4 +1,4 @@
-package com.bob.elasticsearch.transport;
+package com.bob.elasticsearch.local;
 
 import java.io.IOException;
 import java.nio.file.Paths;
