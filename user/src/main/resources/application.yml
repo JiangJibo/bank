@@ -16,10 +16,10 @@ spring:
 
   # 数据源相关配置
   datasource:
-    username: root
-    password: lanboal
+    username: admin
+    password: athene.admin
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/project?useUnicode=true&characterEncoding=UTF8&useSSL=false
+    url: jdbc:mysql://192.168.1.111:3306/atester?useUnicode=true&useSSL=false
     dbcp2:
       max-total: 10
       min-idle: 2
@@ -27,6 +27,8 @@ spring:
 
 server:
   port: 8880
+  tomcat:
+    max-threads: 1
 
 feign:
   hystrix:
