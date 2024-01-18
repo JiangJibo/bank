@@ -13,7 +13,7 @@ public class BaseModel implements Serializable {
     private static final long serialVersionUID = -7192344879797520674L;
 
     /**
-     * 当前页，初始值为1
+     * 当前页，初始值为1bu'jia'ba
      */
     private Integer currentPage = 1;
 

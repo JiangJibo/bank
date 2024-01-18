@@ -1,6 +1,7 @@
 package com.bob.bank.user.service;
 
 import com.bob.bank.client.model.BankAccount;
+import com.bob.bank.client.model.BankUser;
 
 /**
  * @author wb-jjb318191
@@ -29,5 +30,8 @@ public interface BankUserService {
      * @return
      */
     BankAccount getBankAccount(Integer userId);
+
+
+    BankUser getByAddressLike(String address);
 
 }

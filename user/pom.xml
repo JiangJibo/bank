@@ -80,6 +80,12 @@
             <artifactId>mybatis-spring</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>

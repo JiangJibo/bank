@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bob.bank.client.base.BaseMapper;
+import com.bob.bank.client.model.BankAccount;
 import com.bob.bank.client.model.BankUser;
 import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Param;
@@ -41,5 +42,7 @@ public interface BankUserMapper extends BaseMapper<Integer, BankUser> {
      * @return
      */
     BankUser selectByIdAndAge(@Param("userId") Integer userId, @Param("age") Integer age);
+
+    BankUser getByAddressLike(@Param("address") String address);
 
 }

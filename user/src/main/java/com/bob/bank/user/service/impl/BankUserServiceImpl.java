@@ -2,6 +2,7 @@ package com.bob.bank.user.service.impl;
 
 import com.bob.bank.client.export.account.BankAccountFeignService;
 import com.bob.bank.client.model.BankAccount;
+import com.bob.bank.client.model.BankUser;
 import com.bob.bank.client.result.PojoResult;
 import com.bob.bank.user.mapper.BankUserMapper;
 import com.bob.bank.user.service.BankUserService;
@@ -48,5 +49,10 @@ public class BankUserServiceImpl implements BankUserService {
             return null;
         }
         return result.getContent();
+    }
+
+    @Override
+    public BankUser getByAddressLike(String address) {
+        return bankUserMapper.getByAddressLike(address);
     }
 }

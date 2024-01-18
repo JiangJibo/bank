@@ -17,9 +17,9 @@ spring:
   # 数据源相关配置
   datasource:
     username: root
-    password: root
+    password: sky
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/jiangjibo?useUnicode=true&useSSL=false
+    url: jdbc:mysql://192.168.50.174:3307/databuff?useUnicode=true&useSSL=false
     dbcp2:
       max-total: 10
       min-idle: 2

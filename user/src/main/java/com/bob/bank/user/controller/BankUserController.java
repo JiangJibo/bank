@@ -1,6 +1,7 @@
 package com.bob.bank.user.controller;
 
 import com.bob.bank.client.model.BankAccount;
+import com.bob.bank.client.model.BankUser;
 import com.bob.bank.client.result.PojoResult;
 import com.bob.bank.user.service.BankUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,11 @@ public class BankUserController {
     @GetMapping("/{id}/account")
     public PojoResult<BankAccount> getAccountByUserId(@PathVariable Integer id) {
         return new PojoResult<>(bankUserService.getBankAccount(id));
+    }
+
+    @GetMapping("/address")
+    public PojoResult<BankUser> getByAddressLike(String address) {
+        return new PojoResult<>(bankUserService.getByAddressLike(address));
     }
 
 }

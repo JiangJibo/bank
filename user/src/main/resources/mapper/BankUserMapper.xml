@@ -177,4 +177,8 @@
         FROM BANK_USER WHERE USER_ID = #{userId,jdbcType=INTEGER} AND AGE = #{age,jdbcType=INTEGER}
     </select>
 
+    <select id="getByAddressLike" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/> from bank_user where address like "%${address}%"
+    </select>
+
 </mapper>
